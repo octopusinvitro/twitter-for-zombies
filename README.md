@@ -7,6 +7,7 @@ It uses Minitest.
 
 * **How to setup the project:**
 ```bash
+$ apt-get install libsqlite3-dev # or yum install sqlite-devel or  or brew install sqlite3
 $ bundle install
 $ bin/rake db:setup
 ```
