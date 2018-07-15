@@ -20,8 +20,8 @@ class ZombiesControllerTest < ActionController::TestCase
 
   test 'should create zombie' do
     assert_difference('Zombie.count') do
-      post :create, zombie: {
-        age: @zombie.age, bio: @zombie.bio, name: @zombie.name
+      post :create, params: {
+        zombie: { age: @zombie.age, bio: @zombie.bio, name: @zombie.name }
       }
     end
 
@@ -29,25 +29,26 @@ class ZombiesControllerTest < ActionController::TestCase
   end
 
   test 'should show zombie' do
-    get :show, id: @zombie
+    get :show, params: { id: @zombie }
     assert_response :success
   end
 
   test 'should get edit' do
-    get :edit, id: @zombie
+    get :edit, params: { id: @zombie }
     assert_response :success
   end
 
   test 'should update zombie' do
-    patch :update, id: @zombie, zombie: {
-      age: @zombie.age, bio: @zombie.bio, name: @zombie.name
+    patch :update, params: {
+      id: @zombie,
+      zombie: { age: @zombie.age, bio: @zombie.bio, name: @zombie.name }
     }
     assert_redirected_to zombie_path(assigns(:zombie))
   end
 
   test 'should destroy zombie' do
     assert_difference('Zombie.count', -1) do
-      delete :destroy, id: @zombie
+      delete :destroy, params: { id: @zombie }
     end
 
     assert_redirected_to zombies_path
